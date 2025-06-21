@@ -1,0 +1,32 @@
+proxy:
+  listen: ":28080" # 监听端口
+  allow_http: false
+  tls_enabled: false
+  force_tls: false
+  key_file: key.pem
+  cert_file: cert.pem
+
+rules:
+  - domain: "www.cursor.com"
+    allowed_methods: ["CONNECT", "GET", "POST", "HEAD", "OPTIONS"]
+    strip_prefix: false
+
+  - domain: "www.cursor.sh"
+    allowed_methods: ["CONNECT", "GET", "POST", "HEAD", "OPTIONS"]
+    strip_prefix: false
+
+  - domain: "www.google.com"
+    allowed_methods: ["CONNECT", "GET", "POST", "HEAD", "OPTIONS"]
+    strip_prefix: false
+
+  - domain: "www.alibaba.com"
+    deny_paths: []
+    allowed_methods: ["CONNECT", "GET"]
+    strip_prefix: false
+
+  - domain: "api2.cursor.sh"
+
+access_control:
+  require_auth: false
+  auth_user: aaa
+  auth_pass: bbb
